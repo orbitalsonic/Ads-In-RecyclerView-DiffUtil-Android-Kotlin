@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ads In RecylerView DiffUtil</string>
+
+    <string name="country_flag">Country Flag</string>
+
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_medium_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+</resources>
