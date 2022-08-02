@@ -26,7 +26,7 @@
                 android:layout_width="60dp"
                 android:layout_height="40dp"
                 android:scaleType="fitXY"
-                app:imageResource="@{country_item_data.countryFlag}"
+                imageFromUrl="@{country_item_data.countryFlag ?? @drawable/bg_glide}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:contentDescription="@string/country_flag" />

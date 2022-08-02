@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Yaqoob/UnderWorking/Ads-In-RecyclerView-DataBinding-DiffUtil-Android-Kotlin/app/src/main/res/drawable/bg_glide.xml" value="0.2985" />
+        <entry key="..\:/Yaqoob/UnderWorking/Ads-In-RecyclerView-DataBinding-DiffUtil-Android-Kotlin/app/src/main/res/layout/item_admob_ads.xml" value="0.358695652173913" />
+        <entry key="..\:/Yaqoob/UnderWorking/Ads-In-RecyclerView-DataBinding-DiffUtil-Android-Kotlin/app/src/main/res/layout/item_country.xml" value="0.358695652173913" />
         <entry key="..\:/Yaqoob/UnderWorking/AdsInRecylerViewDiffUtil/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Yaqoob/UnderWorking/AdsInRecylerViewDiffUtil/app/src/main/res/layout/item_admob_ads.xml" value="0.17831813576494426" />
         <entry key="..\:/Yaqoob/UnderWorking/AdsInRecylerViewDiffUtil/app/src/main/res/layout/item_country.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
