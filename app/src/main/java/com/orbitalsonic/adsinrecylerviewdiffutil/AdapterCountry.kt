@@ -1,14 +1,12 @@
 package com.orbitalsonic.adsinrecylerviewdiffutil
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 import com.orbitalsonic.adsinrecylerviewdiffutil.databinding.ItemAdmobAdsBinding
 import com.orbitalsonic.adsinrecylerviewdiffutil.databinding.ItemCountryBinding
 
@@ -21,21 +19,20 @@ class AdapterCountry :
         mListener = listener
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        var viewHolder: RecyclerView.ViewHolder? = null
+        val viewHolder: RecyclerView.ViewHolder
         val layoutInflater = LayoutInflater.from(parent.context)
-        when (viewType) {
+        viewHolder = when (viewType) {
             1 -> {
-                val binding: ItemCountryBinding = DataBindingUtil.inflate(layoutInflater,R.layout.item_country,parent,false)
-                viewHolder = CountryViewHolder(binding, mListener!!)
+                val binding: ItemCountryBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_country, parent, false)
+                CountryViewHolder(binding)
             }
-            2 -> {
-                val binding: ItemAdmobAdsBinding = DataBindingUtil.inflate(layoutInflater,R.layout.item_admob_ads,parent,false)
-                viewHolder = ViewHolderAdMob(binding)
+            else -> {
+                val binding: ItemAdmobAdsBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_admob_ads, parent, false)
+                ViewHolderAdMob(binding)
             }
         }
-        return viewHolder!!
+        return viewHolder
 
     }
 
@@ -46,36 +43,35 @@ class AdapterCountry :
                 val viewHolder = holder as CountryViewHolder
                 viewHolder.bind(currentItem)
             }
-            2 -> {
+            else -> {
+                val viewHolder = holder as ViewHolderAdMob
+                viewHolder.bind()
             }
         }
 
     }
 
     override fun getItemViewType(position: Int): Int {
-        return currentList[position].typeView
+        return if (currentList[position] != null) 1 else 2
     }
 
-    class CountryViewHolder(binding:ItemCountryBinding, listener: OnCountryItemClickListener) :
+    inner class CountryViewHolder(val binding: ItemCountryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        private val mBinding = binding
         init {
-
             binding.item.setOnClickListener {
                 val mPosition = adapterPosition
-                listener.onItemClick(mPosition)
+                mListener?.onItemClick(mPosition)
             }
-
         }
 
         fun bind(mCurrentItem: CountryItem) {
-            mBinding.countryItemData = mCurrentItem
+            binding.countryItemData = mCurrentItem
         }
 
     }
 
-    class ViewHolderAdMob(binding: ItemAdmobAdsBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
+    inner class ViewHolderAdMob(val binding: ItemAdmobAdsBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind() {
             val adRequest =
                 AdRequest.Builder().build()
             binding.adViewB.loadAd(adRequest)
